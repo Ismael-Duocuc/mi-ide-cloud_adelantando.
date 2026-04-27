@@ -7,10 +7,10 @@ def leer_clima_tiempo_real():
     """
     url = "https://api.open-meteo.com/v1/forecast?latitude=-33.453654&longitude=-70.573846&current_weather=true"
     try:
-        response = requests.get(url, timeout=5)
+        response = requests.get(url, timeout=20)
         response.raise_for_status()
-        # Extrae datos del dicionario
         data = response.json()['current_weather']
+        print(f"  🌡️  Temperatura actual Santiago: {data['temperature']} °C")
         return pd.DataFrame([data])
     except Exception as e:
         print(f"API del clima fallo: {e}")

@@ -18,11 +18,11 @@ def run_orchestator():
     print("--- Lectura del clima en tiempo real")
     total_lecturas=[]
 
-    for i in range(5):
+    for i in range(2):
         df_lectura=leer_clima_tiempo_real()
         if not df_lectura.empty:
             total_lecturas.append(df_lectura)
-        time.sleep(5)
+        time.sleep(2)
     
     if total_lecturas:
         almacen_datos['clima']=pd.concat(total_lecturas,ignore_index=True)
